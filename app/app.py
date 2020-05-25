@@ -4,6 +4,7 @@ from sklearn.naive_bayes import MultinomialNB
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.feature_extraction.text import TfidfTransformer
 import pickle
+import datetime
 import json
 
 app = Flask(__name__)
@@ -33,10 +34,11 @@ def Prediction():
     tfidf_transformer_data = tfidf_transformer.transform(count_vect_data)
     prediction = clf.predict(tfidf_transformer_data)
     prediction_name = prediction_map.get(str(prediction[0]), "couldn't find name")
-    print(prediction_name)
-    print(prediction[0], type(prediction[0]))
+  
     response = {
-        'year':2020
+        'status': 200,
+        'prediction':prediction_name,
+        'created_at': datetime.datetime.now()
     }
     return jsonify(response)
 
