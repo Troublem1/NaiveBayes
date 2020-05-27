@@ -8,7 +8,7 @@ import datetime
 import json
 
 app = Flask(__name__)
-app.config['DEBUG'] = True
+
 
 @app.route('/')
 def Homepage():
@@ -22,8 +22,8 @@ def Prediction():
         news_train = pickle.load(f)
     with open('models/model.pkl', 'rb') as f:
         clf = pickle.load(f)
-    with open('prediction_map.json', 'r') as js:
-        prediction_map = json.load(js)
+    with open('prediction_map.json', 'r') as pred_map:
+        prediction_map = json.load(pred_map)
 
     count_vect = CountVectorizer()
     tfidf_transformer = TfidfTransformer()
