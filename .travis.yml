@@ -1,9 +1,13 @@
 language: python
 dist: xenial
-before_install: 
-  - cd ./app
+before_install:
+- cd ./app
 install:
-  - pip install -r requirements.txt
+- pip install -r requirements.txt
 script:
-  - pytest
-
+- pytest
+deploy:
+- provider: heroku
+  api_key:
+    secure: Hy/pqsm8y6u/pZNRqVGoXzQgpPHyTlG327R0ytr5mYDwkhwDTjTpIe8tkCpoRg9RdEhwpY6m/Ua33nRvOGtJCx7sgKgM/vmDpDFB3ogW/6uVRO+mxRJmtEQ1DAeHQaKMeTblW8TgJC0Z1zbihrc4VWwmI5cSz4UegFBK/eCLYa6dgJ+NnWzCVIfL+lNbXjfYlnMn950ukIuAv+JP+jBl00I6oDYpfqLCzYFASuxQedBHeV5cxpu6nioXEFhrx0J/QA4/x1nc8tZV8OT18jiLkZd99+whMSHk4UYbKbUhDPebEUIM9TazC/EW8hygLAfyin+SzCj4g70n36aCP85KYq0lfn392Wxod0MRAjCm5KduKCTWYvHVOzYk/BcEztrSzEQp6pLRezIz9jZCtVgu7cEk7Gn4xQGXpGFzB+xzx9t+MjVbVilZ8gxs+3IaRUh8ni34lzm1+anH7kgYbDfAyL6KgTlwwTacmFxSW4CkaeS5R04fkfs8D0qlwvvrENHldXI946KYnXaWgIfLjIA0Ux0zHE0btkxrhiak6L5S48/3c4J8nFG7f8EsaKm0nInWrsnXwGXeAlWE8ErFHWooWlOCdk/57KGT80rm2f4nDeRLoUDxDwKGu21+9qZ3E6cl9Xmfc9+XwIvim7Q01hZsgVazs/1q6NeVifg1iGYsDuA=
+  app: naive-bayes-flask-app
